@@ -1,0 +1,139 @@
+grammar org.xtext.language.Language with org.eclipse.xtext.xbase.annotations.XbaseWithAnnotations
+
+generate language "http://www.xtext.org/language/Language"
+
+import 'http://www.eclipse.org/xtext/xbase/Xbase' as xbase
+
+      
+  
+// Language exists of Instructions
+BotLanguage:
+	{BotLanguage}
+	instructions += Instruction*;
+
+
+// The Bot Language contains 6 different instructions including variables
+// loops, conditions, functons and the username and the password for the login
+Instruction returns xbase::XExpression:
+	  Var 
+	| FORLoop 
+	| IFStatement 
+	| Function 
+	| Form 
+	| Username 
+	| Password 
+	| NotificationAdress 
+	| Start 
+	| Stop 
+	| LoginURL 
+	| Logout 
+	| Button
+;
+
+
+Button:
+	'button ' name = STRING ' at ' STRING
+;
+
+
+LoginURL:
+	{LoginURL}
+	'loginURL = ' name = STRING
+;
+
+
+Logout:
+	{Logout}
+	'logout ' name = STRING ' at ' STRING
+;
+
+
+// definition of the username with key 'username'	
+Username:
+	{Username}
+	'username ' name = STRING ' at ' STRING	
+;
+
+
+// definition of the password with key 'password'	
+Password:
+	{Password}
+	'password ' name = STRING ' at ' STRING
+;
+
+
+// address for notification mails
+NotificationAdress:
+	{NotificationAdress}
+	'address =' name = STRING
+;
+	
+	
+Start:
+	{Start}
+	'start' name = DATE
+;
+
+
+DATE:
+	day = DATE_FORMAT '.' month = DATE_FORMAT '.' year = YEAR ' ' hours = DATE_FORMAT ':' minutes = DATE_FORMAT ':' second = DATE_FORMAT
+;
+
+
+
+
+
+terminal DATE_FORMAT:
+	(('0')('0'..'9')) | (('1'..'5')('0'..'9'))
+;
+
+
+terminal YEAR:
+	('2'..'9')('0'..'9')('0'..'9')('0'..'9')
+;
+
+
+Stop:
+	{Stop}
+	'stop' name = DATE
+;
+
+
+// definition of varialbles with key 'var'	
+Var:
+	'var'? name = ID '=' (STRING|INT)?
+;
+
+
+FORLoop returns xbase::XForLoopExpression:
+	'for' (declaredParam = JvmFormalParameter ':' forExpression = XExpression)
+	 (eachExpression = Function |eachExpression = Var)
+;
+
+
+
+IFStatement returns xbase::XIfExpression:
+	'if' if = XExpression
+	'then' then = Function |then = Var
+	'else' else = Function | 'else' else = Var
+;
+
+
+//ELSEIFStatement returns xbase::XIfExpression:
+//	{IFStatement}
+//	'elseif' if = XExpression
+//	'then' then = Function | then = Var
+//	else = ELSEIFStatement | 'else' else = Function | 'else' else = Var
+//;
+
+
+// definition of functions with key 'func'	
+Function:
+	'func' name = ID '('(actions += Var)*')' 'at' STRING  // Spaeter evtl XPATH spezieller striung als regel	
+;
+
+
+Form:
+	{Form}
+	'form = ' name = STRING 'at' STRING //Xpath
+;

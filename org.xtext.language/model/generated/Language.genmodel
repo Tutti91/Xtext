@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.language/src-gen" editDirectory="/org.xtext.language.edit/src"
+    editorDirectory="/org.xtext.language.editor/src" modelPluginID="org.xtext.language"
+    forceOverwrite="true" modelName="Language" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.xtext.language.edit"
+    editorPluginID="org.xtext.language.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
+  <genPackages prefix="Language" basePackage="org.xtext.language" disposableProviderFactory="true"
+      fileExtensions="lan" ecorePackage="Language.ecore#/">
+    <genClasses ecoreClass="Language.ecore#//BotLanguage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Language.ecore#//BotLanguage/instructions"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Button/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//LoginURL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//LoginURL/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Logout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Logout/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Username">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Username/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Password">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Password/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//NotificationAdress">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//NotificationAdress/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Start">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Language.ecore#//Start/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//DATE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/hours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/minutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//DATE/second"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Stop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Language.ecore#//Stop/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Var">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Var/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Language.ecore#//Function/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="Language.ecore#//Form">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Language.ecore#//Form/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
